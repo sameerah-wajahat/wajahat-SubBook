@@ -50,7 +50,9 @@ public class AddSub extends Activity {
         chargeField = (EditText) findViewById(R.id.editText3);
         commentField = (EditText) findViewById(R.id.editText4);
         Button saveButton = (Button) findViewById(R.id.saveButton);
+        setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
+        setContentView(R.layout.activity_add_sub);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

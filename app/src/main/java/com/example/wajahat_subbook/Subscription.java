@@ -71,5 +71,7 @@ public abstract class Subscription implements Subscribe {
         this.subCharge = subCharge;
     }
 
+    public abstract Boolean isGeneral();
+
 
 }

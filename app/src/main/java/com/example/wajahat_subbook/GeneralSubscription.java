@@ -16,4 +16,8 @@ public class GeneralSubscription extends Subscription {
         super(subName, date, subCharge, comment);
     }
 
+    @Override
+    public Boolean isGeneral() {
+        return Boolean.TRUE;
+    }
 }
