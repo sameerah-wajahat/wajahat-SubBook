@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">wajahat-SubBook</string>
+    <string name="add_button">Add</string>
+    <string name="edit_button">Edit</string>
+    <string name="main_screen_button">Home</string>
+    <string name="view_button">View</string>
+    <string name="save_button">Save</string>
+    <string name="delete_button">Delete</string>
+    <string name="subscriptions_tile">Subscriptions</string>
+    <string name="tc_subtitle">Total Charge:</string>
+    <string name="holder_name">Name</string>
+    <string name="holder_date">Date</string>
+    <string name="holder_charge">Monthly Charge</string>
+    <string name="holder_comment">Comments</string>
+    <string name="date_field">YYYY/MM/DD</string>
+    <string name="charge_field">Non-Negative Value</string>
+    <string name="comment_field">Up to 30 characters only</string>
+    <string name="name_field">Up to 20 characters only</string>
+</resources>

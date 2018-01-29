@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#cac6f2">
+
+    <TextView
+        android:id="@+id/subList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/subscriptions_tile"
+        android:textColor="#0F0A3E"
+        android:textSize="25sp" />
+
+    <ListView
+        android:id="@+id/subscriptionsList"
+        android:layout_width="fill_parent"
+        android:layout_height="263dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/totalCharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tc_subtitle"
+        android:textSize="20sp"
+        android:textColor="#0F0A3E"/>
+
+    <TextView
+        android:id="@+id/tcNumeric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#0F0A3E"
+        android:textSize="20sp"
+        android:text="TextView" />
+
+</LinearLayout>
