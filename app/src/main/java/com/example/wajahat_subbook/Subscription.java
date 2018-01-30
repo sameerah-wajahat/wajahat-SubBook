@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by sameerah on 27/01/18.
  */
 
-public abstract class Subscription implements Subscribe {
+public class Subscription {
     private String subName;
     private Date date;
     private Float subCharge;
@@ -70,8 +70,6 @@ public abstract class Subscription implements Subscribe {
     public void setSubCharge(){
         this.subCharge = subCharge;
     }
-
-    public abstract Boolean isGeneral();
 
 
 }
