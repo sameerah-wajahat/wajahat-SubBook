@@ -27,7 +27,7 @@ public class AddSub extends Activity {
     }
 
 
-    static final int saveStuff = 0;
+    static final int saveStuff = 1;
     public void openViewAgain (View view3){
         Intent intent = new Intent(this, ViewSub.class);
         String name = nameField.getText().toString();
@@ -41,5 +41,6 @@ public class AddSub extends Activity {
         intent.putExtra("fourth", comment);
         setResult(RESULT_OK, intent);
         startActivityForResult(intent, saveStuff);
+        finish();
     }
 }

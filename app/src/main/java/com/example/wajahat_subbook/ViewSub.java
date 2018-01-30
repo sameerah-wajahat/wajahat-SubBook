@@ -47,14 +47,13 @@ public class ViewSub extends Activity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0) {
+        if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
 
-                Intent intent = getIntent();
-                String name = intent.getStringExtra("first");
-                String d = intent.getStringExtra("second");
-                Float monthlyCharge = intent.getFloatExtra("third", -1);
-                String comment = intent.getStringExtra("fourth");
+                String name = data.getStringExtra("first");
+                String d = data.getStringExtra("second");
+                Float monthlyCharge = data.getFloatExtra("third", -1);
+                String comment = data.getStringExtra("fourth");
                 Date date = null;
                 try {
                     DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
@@ -66,7 +65,7 @@ public class ViewSub extends Activity {
                 subList.add(subs);
                 adapter.notifyDataSetChanged();
                 saveInFile();
-
+                finishActivity(1);
             }
         }
     }
