@@ -50,21 +50,23 @@ public class ViewSub extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("first");
-        String d = intent.getStringExtra("second");
-        String c = intent.getStringExtra("third");
-        String comment = intent.getStringExtra("fourth");
-        Date date = null;
-        Float monthlyCharge = Float.parseFloat(c);
-        try {
-            DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
-            date = df.parse(d);
-        } catch (ParseException pe) {
-            pe.printStackTrace();
+        if (name != null) {
+            String d = intent.getStringExtra("second");
+            String c = intent.getStringExtra("third");
+            String comment = intent.getStringExtra("fourth");
+            Date date = null;
+            Float monthlyCharge = Float.parseFloat(c);
+            try {
+                DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
+                date = df.parse(d);
+            } catch (ParseException pe) {
+                pe.printStackTrace();
+            }
+            Subscription subs = new Subscription(name, date, monthlyCharge, comment);
+            subList.add(subs);
+            adapter.notifyDataSetChanged();
+            saveInFile();
         }
-        Subscription subs = new Subscription(name, date, monthlyCharge, comment);
-        subList.add(subs);
-        adapter.notifyDataSetChanged();
-        saveInFile();
     }
 
 
