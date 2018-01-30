@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class ViewSub extends Activity {
+public class ViewSub extends AppCompatActivity {
 
     private static final String FILENAME = "sub_list.sav";
     private ArrayList<Subscription> subList;
@@ -44,30 +44,22 @@ public class ViewSub extends Activity {
         setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
 
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-
-                String name = data.getStringExtra("first");
-                String d = data.getStringExtra("second");
-                Float monthlyCharge = data.getFloatExtra("third", -1);
-                String comment = data.getStringExtra("fourth");
-                Date date = null;
-                try {
-                    DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
-                    date = df.parse(d);
-                } catch (ParseException pe) {
-                    pe.printStackTrace();
-                }
-                Subscription subs = new Subscription(name, date, monthlyCharge, comment);
-                subList.add(subs);
-                adapter.notifyDataSetChanged();
-                saveInFile();
-                finishActivity(1);
-            }
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("first");
+        String d = intent.getStringExtra("second");
+        Float monthlyCharge = intent.getFloatExtra("third", -1);
+        String comment = intent.getStringExtra("fourth");
+        Date date = null;
+        try {
+            DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
+            date = df.parse(d);
+        } catch (ParseException pe) {
+            pe.printStackTrace();
         }
+        Subscription subs = new Subscription(name, date, monthlyCharge, comment);
+        subList.add(subs);
+        adapter.notifyDataSetChanged();
+        saveInFile();
     }
 
 
