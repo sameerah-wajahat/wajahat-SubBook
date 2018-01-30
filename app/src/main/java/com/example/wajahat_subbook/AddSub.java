@@ -31,7 +31,7 @@ public class AddSub extends Activity {
         Intent intent = new Intent(this, ViewSub.class);
         String name = nameField.getText().toString();
         String date = dateField.getText().toString();
-        Float monthlyCharge = Float.parseFloat(chargeField.getText().toString());
+        String monthlyCharge = chargeField.getText().toString();
         String comment = commentField.getText().toString();
 
         intent.putExtra("first", name);

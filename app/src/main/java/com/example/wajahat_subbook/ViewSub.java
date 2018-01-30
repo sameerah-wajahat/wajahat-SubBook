@@ -44,12 +44,17 @@ public class ViewSub extends AppCompatActivity {
         setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
 
+        loadFromFile();
+        adapter = new ArrayAdapter<Subscription>(this, R.layout.list_item, subList);
+        subscriptionsList.setAdapter(adapter);
+
         Intent intent = getIntent();
         String name = intent.getStringExtra("first");
         String d = intent.getStringExtra("second");
-        Float monthlyCharge = intent.getFloatExtra("third", -1);
+        String c = intent.getStringExtra("third");
         String comment = intent.getStringExtra("fourth");
         Date date = null;
+        Float monthlyCharge = Float.parseFloat(c);
         try {
             DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
             date = df.parse(d);
@@ -66,9 +71,6 @@ public class ViewSub extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        loadFromFile();
-        adapter = new ArrayAdapter<Subscription>(this, R.layout.activity_view_sub, subList);
-        subscriptionsList.setAdapter(adapter);
     }
 
     private void loadFromFile() {
