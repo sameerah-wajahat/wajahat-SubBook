@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddSub" />
-        <activity android:name=".ViewSub"></activity>
+        <activity android:name=".ViewSub" />
+        <activity android:name=".EditBook"></activity>
     </application>
 
 </manifest>

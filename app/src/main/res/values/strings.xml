@@ -16,4 +16,7 @@
     <string name="charge_field">Non-Negative Value</string>
     <string name="comment_field">Up to 30 characters only</string>
     <string name="name_field">Up to 20 characters only</string>
+    <string name="delete_context">Delete</string>
+    <string name="edit_context">Edit</string>
+    <string name="title_activity_edit_book">EditBook</string>
 </resources>

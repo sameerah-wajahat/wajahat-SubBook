@@ -5,11 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.zip.Inflater;
 
 public class ViewSub extends AppCompatActivity {
 
@@ -36,13 +42,15 @@ public class ViewSub extends AppCompatActivity {
     private ArrayList<Subscription> subList;
     private ArrayAdapter<Subscription> adapter;
     private ListView subscriptionsList;
-
+    private TextView totalCharge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
+        totalCharge = (TextView) findViewById(R.id.totalCharge);
+        registerForContextMenu(subscriptionsList);
 
         loadFromFile();
         adapter = new ArrayAdapter<Subscription>(this, R.layout.list_item, subList);
@@ -67,6 +75,33 @@ public class ViewSub extends AppCompatActivity {
             adapter.notifyDataSetChanged();
             saveInFile();
         }
+
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, view, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.popup, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch(item.getItemId()){
+            case R.id.option1:
+                subList.remove(info.position);
+                adapter.notifyDataSetChanged();
+                saveInFile();
+                return true;
+
+            case R.id.option2:
+                Intent intent = new Intent(this, EditBook.class);
+
+
+        }
+
+        return super.onContextItemSelected(item);
     }
 
 

@@ -56,7 +56,7 @@ public class Subscription {
 
 
     public String toString(){
-        String appearance = this.subName + "\n" + this.date + "\n" + this.subCharge + "\n";
+        String appearance = this.subName + "\n" + this.date + "\n" + "$" + this.subCharge + "\n";
         return(appearance);
     }
 
