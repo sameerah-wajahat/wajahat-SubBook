@@ -33,7 +33,7 @@ public class Subscription {
     }
 
     public void setSubName(String subName) throws NameTooLongException{
-        if (subName.length() < 21){
+        if (subName.length() < 20){
             this.subName = subName;
         }
         else{
@@ -46,7 +46,7 @@ public class Subscription {
     }
 
     public void setComment(String comment) throws CommentTooLongException{
-        if (comment.length() < 31){
+        if (comment.length() < 30){
             this.comment = comment;
         }
         else{
