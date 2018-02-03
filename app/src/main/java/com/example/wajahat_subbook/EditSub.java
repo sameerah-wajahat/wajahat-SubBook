@@ -39,7 +39,7 @@ public class EditSub extends Activity {
     }
 
     public void doNothing(View view){
-        Intent intent = new Intent(this, SubBook.class);
+        Intent intent = new Intent(this, ViewSub.class);
         startActivity(intent);
     }
 
