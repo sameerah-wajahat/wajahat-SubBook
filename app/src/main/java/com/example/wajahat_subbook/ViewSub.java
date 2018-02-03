@@ -42,15 +42,17 @@ public class ViewSub extends AppCompatActivity {
     private ArrayList<Subscription> subList;
     private ArrayAdapter<Subscription> adapter;
     private ListView subscriptionsList;
-    private TextView totalCharge;
+    private EditText totalCharge;
+    private Float sum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
-        totalCharge = (TextView) findViewById(R.id.totalCharge);
+        totalCharge = (EditText) findViewById(R.id.tcNumeric);
         registerForContextMenu(subscriptionsList);
+
 
         loadFromFile();
         adapter = new ArrayAdapter<Subscription>(this, R.layout.list_item, subList);
@@ -78,6 +80,19 @@ public class ViewSub extends AppCompatActivity {
 
     }
 
+    public void goHome(View view){
+        setContentView(R.layout.activity_sub_book);
+    }
+
+    public void calculateTc(EditText totalCharge, Float sum){
+        for (int i = 0; i<subList.size(); i++){
+            Subscription sub = subList.get(i);
+            sum += sub.getSubCharge();
+        }
+        String totalSum = sum.toString();
+        totalCharge.setText(totalSum);
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, view, menuInfo);
@@ -94,11 +109,25 @@ public class ViewSub extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 saveInFile();
                 return true;
-
+            //latest changes from here onwards
             case R.id.option2:
-                Intent intent = new Intent(this, EditBook.class);
+                Intent intent = new Intent(this, EditSub.class);
+                Subscription sub1 = subList.get(info.position);
+                String name = sub1.getSubName();
+                Date date = sub1.getDate();
+                Float charge = sub1.getSubCharge();
+                String comment = sub1.getComment();
 
+                String d = date.toString();
+                String c = charge.toString();
 
+                intent.putExtra("first", name);
+                intent.putExtra("second", d);
+                intent.putExtra("third", c);
+                intent.putExtra("fourth", comment);
+                startActivity(intent);
+                return true;
+            // to here
         }
 
         return super.onContextItemSelected(item);

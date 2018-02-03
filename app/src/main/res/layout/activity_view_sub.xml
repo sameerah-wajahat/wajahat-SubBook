@@ -28,16 +28,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tc_subtitle"
-        android:textSize="20sp"
-        android:textColor="#0F0A3E"/>
+        android:textColor="#0F0A3E"
+        android:textSize="20sp" />
 
-    <TextView
+    <EditText
         android:id="@+id/tcNumeric"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="#0F0A3E"
-        android:textSize="20sp"
-        android:text="TextView" />
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/main_button"
+        android:onClick="goHome"/>
 
 </LinearLayout>

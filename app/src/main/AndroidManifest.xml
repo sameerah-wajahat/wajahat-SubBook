@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".AddSub" />
         <activity android:name=".ViewSub" />
-        <activity android:name=".EditBook"></activity>
+        <activity android:name=".EditSub"></activity>
     </application>
 
 </manifest>
