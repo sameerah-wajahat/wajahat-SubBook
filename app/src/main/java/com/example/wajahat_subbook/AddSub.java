@@ -39,11 +39,13 @@ public class AddSub extends AppCompatActivity {
         String date = dateField.getText().toString();
         String monthlyCharge = chargeField.getText().toString();
         String comment = commentField.getText().toString();
+        Integer position = null;
 
         intent.putExtra("first", name);
         intent.putExtra("second", date);
         intent.putExtra("third", monthlyCharge);
         intent.putExtra("fourth", comment);
+        intent.putExtra("fifth", position);
         startActivity(intent);
     }
 

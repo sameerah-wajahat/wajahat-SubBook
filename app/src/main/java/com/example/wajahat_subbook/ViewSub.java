@@ -59,6 +59,7 @@ public class ViewSub extends AppCompatActivity {
         subscriptionsList.setAdapter(adapter);
 
         Intent intent = getIntent();
+        Integer position = intent.getIntExtra("fifth", 0);
         String name = intent.getStringExtra("first");
         if (name != null) {
             String d = intent.getStringExtra("second");
@@ -72,12 +73,21 @@ public class ViewSub extends AppCompatActivity {
             } catch (ParseException pe) {
                 pe.printStackTrace();
             }
-            Subscription subs = new Subscription(name, date, monthlyCharge, comment);
-            subList.add(subs);
-            adapter.notifyDataSetChanged();
-            saveInFile();
-        }
+            if (position == null) {
+                Subscription subs = new Subscription(name, date, monthlyCharge, comment);
+                subList.add(subs);
+                adapter.notifyDataSetChanged();
+                saveInFile();
+            } else {
+                Subscription sub = subList.get(position);
+                subList.remove(sub);
+                Subscription subs = new Subscription(name, date, monthlyCharge, comment);
+                subList.add(subs);
+                adapter.notifyDataSetChanged();
+                saveInFile();
 
+            }
+        }
     }
 
     public void goHome(View view){
@@ -122,10 +132,14 @@ public class ViewSub extends AppCompatActivity {
                 String d = date.toString();
                 String c = charge.toString();
 
+                Integer position = info.position;
+
                 intent.putExtra("first", name);
                 intent.putExtra("second", d);
                 intent.putExtra("third", c);
                 intent.putExtra("fourth", comment);
+                intent.putExtra("fifth", position);
+
                 startActivity(intent);
                 return true;
             // to here

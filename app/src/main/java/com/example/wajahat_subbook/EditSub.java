@@ -13,6 +13,7 @@ public class EditSub extends Activity {
     private EditText dateField;
     private EditText chargeField;
     private EditText commentField;
+    private Integer position;
 
 
     @Override
@@ -29,6 +30,7 @@ public class EditSub extends Activity {
         String date = intent.getStringExtra("second");
         String charge = intent.getStringExtra("third");
         String comment = intent.getStringExtra("fourth");
+        Integer position = intent.getIntExtra("fifth", 0);
 
         nameField.setText(name);
         dateField.setText(date);
@@ -44,6 +46,7 @@ public class EditSub extends Activity {
     }
 
     public void openViewAgain(View view){
+
         Intent intent = new Intent(this, ViewSub.class);
         String name = nameField.getText().toString();
         String date = dateField.getText().toString();
@@ -54,6 +57,8 @@ public class EditSub extends Activity {
         intent.putExtra("second", date);
         intent.putExtra("third", monthlyCharge);
         intent.putExtra("fourth", comment);
+        intent.putExtra("fifth", position);
+
         startActivity(intent);
     }
 }
