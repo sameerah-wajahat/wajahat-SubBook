@@ -81,7 +81,8 @@ public class ViewSub extends AppCompatActivity {
     }
 
     public void goHome(View view){
-        setContentView(R.layout.activity_sub_book);
+        Intent intent = new Intent(this, SubBook.class);
+        startActivity(intent);
     }
 
     public void calculateTc(EditText totalCharge, Float sum){

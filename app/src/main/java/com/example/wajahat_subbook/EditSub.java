@@ -39,7 +39,8 @@ public class EditSub extends Activity {
     }
 
     public void doNothing(View view){
-        setContentView(R.layout.activity_sub_book);
+        Intent intent = new Intent(this, SubBook.class);
+        startActivity(intent);
     }
 
     public void openViewAgain(View view){
