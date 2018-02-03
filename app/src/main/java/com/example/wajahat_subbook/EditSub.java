@@ -1,12 +1,13 @@
 package com.example.wajahat_subbook;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class EditSub extends AppCompatActivity {
+public class EditSub extends Activity {
 
     private EditText nameField;
     private EditText dateField;
