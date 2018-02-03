@@ -59,7 +59,7 @@ public class ViewSub extends AppCompatActivity {
         subscriptionsList.setAdapter(adapter);
 
         Intent intent = getIntent();
-        Integer position = intent.getIntExtra("fifth", 0);
+        Integer position = intent.getIntExtra("fifth", -1);
         String name = intent.getStringExtra("first");
         if (name != null) {
             String d = intent.getStringExtra("second");
@@ -73,7 +73,7 @@ public class ViewSub extends AppCompatActivity {
             } catch (ParseException pe) {
                 pe.printStackTrace();
             }
-            if (position == null) {
+            if (position == null || position == -1) {
                 Subscription subs = new Subscription(name, date, monthlyCharge, comment);
                 subList.add(subs);
                 adapter.notifyDataSetChanged();

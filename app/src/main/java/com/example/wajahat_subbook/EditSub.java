@@ -30,7 +30,7 @@ public class EditSub extends Activity {
         String date = intent.getStringExtra("second");
         String charge = intent.getStringExtra("third");
         String comment = intent.getStringExtra("fourth");
-        Integer position = intent.getIntExtra("fifth", 0);
+        position = intent.getIntExtra("fifth", 0);
 
         nameField.setText(name);
         dateField.setText(date);
