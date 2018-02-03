@@ -42,7 +42,7 @@ public class ViewSub extends AppCompatActivity {
     private ArrayList<Subscription> subList;
     private ArrayAdapter<Subscription> adapter;
     private ListView subscriptionsList;
-    private EditText totalCharge;
+    private TextView totalCharge;
     private Float sum;
 
     @Override
@@ -50,7 +50,7 @@ public class ViewSub extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sub);
         subscriptionsList = (ListView) findViewById(R.id.subscriptionsList);
-        totalCharge = (EditText) findViewById(R.id.tcNumeric);
+        totalCharge = (TextView) findViewById(R.id.tcNumeric);
         registerForContextMenu(subscriptionsList);
 
 
@@ -85,7 +85,7 @@ public class ViewSub extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void calculateTc(EditText totalCharge, Float sum){
+    public void calculateTc(TextView totalCharge, Float sum){
         for (int i = 0; i<subList.size(); i++){
             Subscription sub = subList.get(i);
             sum += sub.getSubCharge();
