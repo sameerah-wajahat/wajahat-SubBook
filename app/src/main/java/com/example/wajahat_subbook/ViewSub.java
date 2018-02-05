@@ -64,7 +64,7 @@ public class ViewSub extends AppCompatActivity {
             Float monthlyCharge = Float.parseFloat(c);
             try {
                 date = Calendar.getInstance();
-                SimpleDateFormat df = new SimpleDateFormat("YYYY/MM/DD");
+                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
                 date.setTime(df.parse(d));
             } catch (ParseException pe) {
                 pe.printStackTrace();

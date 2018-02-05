@@ -12,7 +12,7 @@ import android.widget.EditText;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class EditSub extends Activity {
+public class EditSub extends AppCompatActivity {
 
     private EditText nameField;
     private EditText dateField;
