@@ -97,14 +97,6 @@ public class ViewSub extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void calculateTc(TextView totalCharge, Float sum){
-        for (int i = 0; i<subList.size(); i++){
-            Subscription sub = subList.get(i);
-            sum += sub.getSubCharge();
-        }
-        String totalSum = sum.toString();
-        totalCharge.setText(totalSum);
-    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
@@ -154,6 +146,12 @@ public class ViewSub extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        for (int i = 0; i<subList.size(); i++){
+            Subscription sub = subList.get(i);
+            sum += sub.getSubCharge();
+        }
+        String totalSum = sum.toString();
+        totalCharge.setText(totalSum);
     }
 
     private void loadFromFile() {
