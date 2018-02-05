@@ -32,7 +32,7 @@ public class EditSub extends AppCompatActivity {
         commentField = (EditText) findViewById(R.id.editText4);
 
         dateField.setFocusable(false);
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 
         dateField.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class EditSub extends AppCompatActivity {
         String date = intent.getStringExtra("second");
         String charge = intent.getStringExtra("third");
         String comment = intent.getStringExtra("fourth");
-        position = intent.getIntExtra("fifth", 0);
+        position = intent.getIntExtra("fifth", -1);
 
         nameField.setText(name);
         dateField.setText(df.format(date));

@@ -75,10 +75,8 @@ public class ViewSub extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 saveInFile();
             } else {
-                Subscription sub = subList.get(position);
-                subList.remove(sub);
                 Subscription subs = new Subscription(name, date, monthlyCharge, comment);
-                subList.add(subs);
+                subList.set(position, subs);
                 adapter.notifyDataSetChanged();
                 saveInFile();
 

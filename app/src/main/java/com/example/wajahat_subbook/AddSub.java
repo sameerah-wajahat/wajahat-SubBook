@@ -31,7 +31,7 @@ public class AddSub extends AppCompatActivity {
         commentField = (EditText) findViewById(R.id.editText4);
 
         dateField.setFocusable(false);
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 
         dateField.setOnClickListener(new View.OnClickListener() {
             @Override
