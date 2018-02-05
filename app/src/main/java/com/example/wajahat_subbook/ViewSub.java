@@ -105,6 +105,13 @@ public class ViewSub extends AppCompatActivity {
                 subList.remove(info.position);
                 adapter.notifyDataSetChanged();
                 saveInFile();
+                sum = new Float(0);
+                for (int i = 0; i<subList.size(); i++){
+                    Subscription sub = subList.get(i);
+                    sum += sub.getSubCharge();
+                }
+                String totalSum = String.format("$%,.2f", sum);
+                totalCharge.setText(totalSum);
                 return true;
 
             case R.id.option2:
