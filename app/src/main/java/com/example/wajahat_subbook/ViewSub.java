@@ -151,7 +151,7 @@ public class ViewSub extends AppCompatActivity {
             Subscription sub = subList.get(i);
             sum += sub.getSubCharge();
         }
-        String totalSum = String.format("$%,.2f", totalCharge);
+        String totalSum = String.format("$%,.2f", sum);
         totalCharge.setText(totalSum);
     }
 
