@@ -32,7 +32,7 @@ public class EditSub extends Activity {
         commentField = (EditText) findViewById(R.id.editText4);
 
         dateField.setFocusable(false);
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
         dateField.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +71,7 @@ public class EditSub extends Activity {
             calDate.set(Calendar.YEAR, year);
             calDate.set(Calendar.MONTH, month);
             calDate.set(Calendar.DAY_OF_MONTH, day);
-            dateField.setText(year + "-" + (month + 1) + "-" + day);
+            dateField.setText(year + "/" + (month + 1) + "/" + day);
         }
     };
 

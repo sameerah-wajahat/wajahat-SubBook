@@ -140,6 +140,7 @@ public class ViewSub extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //https://stackoverflow.com
         sum = new Float(0);
         for (int i = 0; i<subList.size(); i++){
             Subscription sub = subList.get(i);
