@@ -57,7 +57,7 @@ public class Subscription {
 
 
     public String toString(){
-        String appearance = this.subName + "\n" + this.date + "\n" + "$" + this.subCharge + "\n";
+        String appearance = this.subName + "\n" + this.date.get(Calendar.YEAR) + "/" + this.date.get(Calendar.MONTH) + "/" + this.date.get(Calendar.DAY_OF_MONTH) + "\n" + "$" + String.format("$%,.2f", this.subCharge) + "\n";
         return(appearance);
     }
 

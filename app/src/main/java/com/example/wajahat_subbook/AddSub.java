@@ -32,7 +32,6 @@ public class AddSub extends AppCompatActivity {
         commentField = (EditText) findViewById(R.id.editText4);
 
         dateField.setFocusable(false);
-        dateField.setOnClickListener((View.OnClickListener) this);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
 
         dateField.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +45,6 @@ public class AddSub extends AppCompatActivity {
             }
         });
 
-        dateField.setText(df.format(calDate.getTime()));
-
     }
 
     /**
@@ -60,7 +57,7 @@ public class AddSub extends AppCompatActivity {
             calDate.set(Calendar.YEAR, year);
             calDate.set(Calendar.MONTH, month);
             calDate.set(Calendar.DAY_OF_MONTH, day);
-            dateField.setText(year + "-" + (month + 1) + "-" + day);
+            dateField.setText(year + "/" + (month + 1) + "/" + day);
         }
     };
 

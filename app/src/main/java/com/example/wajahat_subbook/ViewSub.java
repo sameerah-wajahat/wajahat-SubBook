@@ -146,11 +146,12 @@ public class ViewSub extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        sum = new Float(0);
         for (int i = 0; i<subList.size(); i++){
             Subscription sub = subList.get(i);
             sum += sub.getSubCharge();
         }
-        String totalSum = sum.toString();
+        String totalSum = String.format("$%,.2f", totalCharge);
         totalCharge.setText(totalSum);
     }
 

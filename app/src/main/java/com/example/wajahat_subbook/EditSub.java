@@ -32,7 +32,6 @@ public class EditSub extends Activity {
         commentField = (EditText) findViewById(R.id.editText4);
 
         dateField.setFocusable(false);
-        dateField.setOnClickListener((View.OnClickListener) this);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
 
         dateField.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +45,6 @@ public class EditSub extends Activity {
             }
         });
 
-        dateField.setText(df.format(calDate.getTime()));
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("first");
