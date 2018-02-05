@@ -33,28 +33,17 @@ public class Subscription {
         return subName;
     }
 
-    public void setSubName(String subName) throws NameTooLongException{
-        if (subName.length() < 20){
-            this.subName = subName;
-        }
-        else{
-            throw new NameTooLongException();
-        }
+    public void setSubName(String subName){
+        this.subName = subName;
     }
 
     public String getComment(){
         return comment;
     }
 
-    public void setComment(String comment) throws CommentTooLongException{
-        if (comment.length() < 30){
-            this.comment = comment;
-        }
-        else{
-            throw new CommentTooLongException();
-        }
+    public void setComment(String comment) {
+        this.comment = comment;
     }
-
 
     public String toString(){
         String appearance = this.subName + "\n" + this.date.get(Calendar.YEAR) + "/" + this.date.get(Calendar.MONTH) + "/" + this.date.get(Calendar.DAY_OF_MONTH) + "\n" + String.format("$%,.2f", this.subCharge) + "\n";

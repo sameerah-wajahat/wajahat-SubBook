@@ -69,9 +69,19 @@ public class AddSub extends AppCompatActivity {
     public void openViewAgain (View view3){
         Intent intent = new Intent(this, ViewSub.class);
         String name = nameField.getText().toString();
+        if (name.isEmpty() || name.length()>20) {
+            nameField.setError("Enter name/Name too long");
+            return;
+        }
+
         String date = dateField.getText().toString();
         String monthlyCharge = chargeField.getText().toString();
         String comment = commentField.getText().toString();
+        if (comment.length()>30) {
+            commentField.setError("Comment too long");
+            return;
+        }
+
         Integer position = null;
 
         intent.putExtra("first", name);
