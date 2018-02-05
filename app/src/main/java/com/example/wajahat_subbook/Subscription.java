@@ -63,7 +63,7 @@ public class Subscription {
         return subCharge;
     }
 
-    public void setSubCharge(){
+    public void setSubCharge(Float subCharge){
         this.subCharge = subCharge;
     }
 
