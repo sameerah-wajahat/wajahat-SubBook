@@ -1,0 +1,4 @@
+#Fri Feb 02 21:47:40 MST 2018
+base.0=/home/sameerah/Desktop/old/wajahatSubBook/app/build/intermediates/transforms/dexMerger/debug/25
+path.0=classes.dex
+renamed.0=classes.dex
