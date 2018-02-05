@@ -54,7 +54,7 @@ public class EditSub extends AppCompatActivity {
         position = intent.getIntExtra("fifth", -1);
 
         nameField.setText(name);
-        dateField.setText(df.format(date));
+        dateField.setText(date);
         chargeField.setText(charge);
         commentField.setText(comment);
 
