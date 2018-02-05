@@ -1,3 +1,9 @@
+/* Copyright (c) 2018 Sameerah Wajahat, CMPUT 301, University of Alberta - All Rights Reserved.
+* You may use, distribute or modify this code under terms and conditions of Code of Student Behaviour at
+* University of Alberta.
+* You can find a copy of the license in this project. Otherwise please contact wajahat@ualberta.ca
+*/
+
 package com.example.wajahat_subbook;
 
 import android.content.Context;
@@ -30,15 +36,28 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * @author Sameerah Wajahat
+ * This activity allows the user to view the list of subscriptions and total charge of
+ * all the subscriptions, it also receives the edited or new subscription for other activities
+ * @see AddSub
+ * @see EditSub
+ * @see Subscription
+ */
 
 public class ViewSub extends AppCompatActivity {
 
-    private static final String FILENAME = "sub_list.sav";
-    private ArrayList<Subscription> subList;
-    private ArrayAdapter<Subscription> adapter;
-    private ListView subscriptionsList;
-    private TextView totalCharge;
-    private Float sum;
+    private static final String FILENAME = "sub_list.sav";      //File that saves the list of subscriptions
+    private ArrayList<Subscription> subList;        //Arraylist for the subscriptions
+    private ArrayAdapter<Subscription> adapter;     //ArrayAdapter for the subscriptions
+    private ListView subscriptionsList;     //Widget that displays the list
+    private TextView totalCharge;       //Widget that displays the total charge for all subscriptions
+    private Float sum;      //total charge of the subscriptions
+
+    /**
+     * Displays the page that views the subscription list and add/edits the item in the list
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +103,22 @@ public class ViewSub extends AppCompatActivity {
         }
     }
 
+    /**
+     * Launches the home page activity on the click of the Home button
+     * @param view
+     */
+
     public void goHome(View view){
         Intent intent = new Intent(this, SubBook.class);
         startActivity(intent);
     }
 
+    /**
+     * Creates a popup menu upon the Long press of an item on the list
+     * @param menu
+     * @param view
+     * @param menuInfo
+     */
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
@@ -96,6 +126,14 @@ public class ViewSub extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.popup, menu);
     }
+
+    /**
+     * The popup menu contains two options of edit and delete - upon the click of edit (option 2)
+     * passes intent and launches an activity; upon the click of delete (option 1),
+     * removes the item from the list
+     * @param item
+     * @return boolean value
+     */
 
     @Override
     public boolean onContextItemSelected(MenuItem item){
@@ -141,6 +179,9 @@ public class ViewSub extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
+    /**
+     * Calculates the total charge of all the subscriptions present in the list
+     */
 
     @Override
     protected void onStart() {
@@ -154,6 +195,10 @@ public class ViewSub extends AppCompatActivity {
         String totalSum = String.format("$%,.2f", sum);
         totalCharge.setText(totalSum);
     }
+
+    /**
+     * Taken from lonelytwitter - CMPUT 301 Lab - loads the subscriptions from the file
+     */
 
     private void loadFromFile() {
 
@@ -179,6 +224,10 @@ public class ViewSub extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Taken from lonelytwitter - CMPUT 301 Lab - saves the subscriptions in the file
+     */
 
     private void saveInFile() {
 

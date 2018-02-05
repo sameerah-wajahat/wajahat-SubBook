@@ -1,3 +1,10 @@
+/* Copyright (c) 2018 Sameerah Wajahat, CMPUT 301, University of Alberta - All Rights Reserved.
+* You may use, distribute or modify this code under terms and conditions of Code of Student Behaviour at
+* University of Alberta.
+* You can find a copy of the license in this project. Otherwise please contact wajahat@ualberta.ca
+*/
+
+
 package com.example.wajahat_subbook;
 
 import android.app.DatePickerDialog;
@@ -11,15 +18,25 @@ import android.widget.EditText;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * @author Sameerah Wajahat
+ * This acitivity allows the user to add (create) a new subscription
+ * @see ViewSub
+ */
 
 public class AddSub extends AppCompatActivity {
 
-    private EditText nameField;
-    private Calendar calDate;
-    private EditText dateField;
-    private EditText chargeField;
-    private EditText commentField;
+    private EditText nameField;     //Widget that receives the name of the Subscription
+    private Calendar calDate;       //Date of the subscription
+    private EditText dateField;     //Widget that receives the date of the subscription
+    private EditText chargeField;   //Widget that receives the monthly charge of the subscription
+    private EditText commentField;  //Widget that receives the comment about the subscription
 
+    /**
+     * Displays the add screen activity that allows the user to create the new subscription
+     * Also, at the click of the date widget a calendar will pop up
+     * @param savedInstanceState
+     */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,10 +77,21 @@ public class AddSub extends AppCompatActivity {
         }
     };
 
+    /**
+     * Lauches the home screen page at the click of the Cancel button
+     * @param view
+     */
+
     public void doNothing(View view){
         Intent intent = new Intent(this, SubBook.class);
         startActivity(intent);
     }
+
+    /**
+     * Launches the Subscription list page at the click of the Save button, passes the
+     * info of the new subscription and also checks for incorrect/null values
+     * @param view3
+     */
 
     public void openViewAgain (View view3){
         Intent intent = new Intent(this, ViewSub.class);
@@ -74,7 +102,17 @@ public class AddSub extends AppCompatActivity {
         }
 
         String date = dateField.getText().toString();
+        if (date.isEmpty()) {
+            dateField.setError("Enter date");
+            return;
+        }
+
         String monthlyCharge = chargeField.getText().toString();
+        if (monthlyCharge.isEmpty()) {
+            chargeField.setError("Enter charge");
+            return;
+        }
+
         String comment = commentField.getText().toString();
         if (comment.length()>30) {
             commentField.setError("Comment too long");
