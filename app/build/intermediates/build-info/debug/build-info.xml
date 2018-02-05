@@ -6,26 +6,30 @@
     density="420dpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1517807056855"
+    timestamp="1517808071000"
     token="5814021754816997564"
-    verifier="NO_CHANGES" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="242" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="512" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="78" />
     <task
         name="verifier"
-        duration="0" />
+        duration="61" />
+
+    <artifact
+        location="/home/sameerah/Desktop/old/wajahatSubBook/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
         build-mode="FULL"
-        timestamp="1517806947154"
+        timestamp="1517807964360"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/sameerah/Desktop/old/wajahatSubBook/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
@@ -66,7 +70,11 @@
     </build>
     <build
         build-mode="HOT_WARM"
-        timestamp="1517807056855"
-        verifier="NO_CHANGES" />
+        timestamp="1517808071000"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/sameerah/Desktop/old/wajahatSubBook/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
 
 </instant-run>

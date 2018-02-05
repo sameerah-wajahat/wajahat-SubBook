@@ -117,7 +117,7 @@ public class ViewSub extends AppCompatActivity {
                 Float charge = sub1.getSubCharge();
                 String comment = sub1.getComment();
 
-                String d = date.toString();
+                String d = date.get(Calendar.YEAR) + "/" + (date.get(Calendar.MONTH)+1) + "/" + date.get(Calendar.DAY_OF_MONTH);
                 String c = charge.toString();
 
                 Integer position = info.position;
