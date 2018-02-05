@@ -32,6 +32,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.zip.Inflater;
@@ -65,11 +66,12 @@ public class ViewSub extends AppCompatActivity {
             String d = intent.getStringExtra("second");
             String c = intent.getStringExtra("third");
             String comment = intent.getStringExtra("fourth");
-            Date date = null;
+            Calendar date = null;
             Float monthlyCharge = Float.parseFloat(c);
             try {
-                DateFormat df = new SimpleDateFormat("YYYY/MM/DD", Locale.CANADA);
-                date = df.parse(d);
+                date = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("YYYY/MM/DD");
+                date.setTime(df.parse(d));
             } catch (ParseException pe) {
                 pe.printStackTrace();
             }
@@ -120,12 +122,12 @@ public class ViewSub extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 saveInFile();
                 return true;
-            //latest changes from here onwards
+
             case R.id.option2:
                 Intent intent = new Intent(this, EditSub.class);
                 Subscription sub1 = subList.get(info.position);
                 String name = sub1.getSubName();
-                Date date = sub1.getDate();
+                Calendar date = sub1.getDate();
                 Float charge = sub1.getSubCharge();
                 String comment = sub1.getComment();
 

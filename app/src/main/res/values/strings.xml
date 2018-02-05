@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">wajahat-SubBook</string>
-    <string name="add_button">Add</string>
+    <string name="add_button">Add New Subscription</string>
     <string name="edit_button">Edit</string>
     <string name="main_screen_button">Home</string>
-    <string name="view_button">View</string>
+    <string name="view_button">View Current Subscriptions</string>
     <string name="save_button">Save</string>
     <string name="delete_button">Delete</string>
     <string name="subscriptions_tile">Subscriptions</string>

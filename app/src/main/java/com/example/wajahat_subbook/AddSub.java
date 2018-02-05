@@ -1,17 +1,22 @@
 package com.example.wajahat_subbook;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 
 public class AddSub extends AppCompatActivity {
 
     private EditText nameField;
+    private Calendar calDate;
     private EditText dateField;
     private EditText chargeField;
     private EditText commentField;
@@ -26,7 +31,38 @@ public class AddSub extends AppCompatActivity {
         chargeField = (EditText) findViewById(R.id.editText3);
         commentField = (EditText) findViewById(R.id.editText4);
 
+        dateField.setFocusable(false);
+        dateField.setOnClickListener((View.OnClickListener) this);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
+
+        dateField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calDate = Calendar.getInstance();
+                new DatePickerDialog(AddSub.this, onDateSetListener,
+                        calDate.get(Calendar.YEAR),
+                        calDate.get(Calendar.MONTH),
+                        calDate.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        dateField.setText(df.format(calDate.getTime()));
+
     }
+
+    /**
+     * https://stackoverflow.com/questions/15027454/how-to-get-onclick-in-datepickerdialog-ondatesetlistener
+     *
+     */
+    DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            calDate.set(Calendar.YEAR, year);
+            calDate.set(Calendar.MONTH, month);
+            calDate.set(Calendar.DAY_OF_MONTH, day);
+            dateField.setText(year + "-" + (month + 1) + "-" + day);
+        }
+    };
 
     public void doNothing(View view){
         Intent intent = new Intent(this, SubBook.class);

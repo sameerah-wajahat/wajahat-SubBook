@@ -1,5 +1,6 @@
 package com.example.wajahat_subbook;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -8,19 +9,19 @@ import java.util.Date;
 
 public class Subscription {
     private String subName;
-    private Date date;
+    private Calendar date;
     private Float subCharge;
     private String comment;
 
 
-    Subscription(String subName, Date date, Float subCharge){
+    Subscription(String subName, Calendar date, Float subCharge){
         this.subName = subName;
         this.date = date;
         this.subCharge = subCharge;
         this.comment = null;
     }
 
-    Subscription(String subName, Date date, Float subCharge, String comment) {
+    Subscription(String subName, Calendar date, Float subCharge, String comment) {
         this.subName = subName;
         this.date = date;
         this.subCharge = subCharge;
@@ -61,11 +62,11 @@ public class Subscription {
     }
 
 
-    public Date getDate(){
+    public Calendar getDate(){
         return date;
     }
 
-    public void setDate(Date date){
+    public void setDate(Calendar date){
         this.date = date;
     }
 
