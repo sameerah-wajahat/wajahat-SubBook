@@ -11,13 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/subscriptions_tile"
+        android:textStyle="bold"
         android:textColor="#0F0A3E"
+        android:fontFamily="sans-serif"
         android:textSize="25sp" />
 
     <ListView
         android:id="@+id/subscriptionsList"
         android:layout_width="fill_parent"
         android:textColor="#0F0A3E"
+        android:fontFamily="sans-serif"
         android:layout_height="263dp"
         android:layout_weight="1"
         android:scrollbars="vertical">
@@ -30,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/tc_subtitle"
         android:textColor="#0F0A3E"
+        android:fontFamily="sans-serif"
         android:textSize="20sp" />
 
     <TextView
@@ -38,7 +42,8 @@
         android:layout_height="wrap_content"
         android:textColor="#0F0A3E"
         android:layout_gravity="center"
-        android:textSize="20sp" />
+        android:fontFamily="sans-serif"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/home"
@@ -46,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#0F0A3E"
+        android:fontFamily="sans-serif"
         android:text="@string/main_button"
         android:onClick="goHome"/>
 
